@@ -16,6 +16,7 @@
 ```
 2. 打开上述找到的串口
 ```
+        // 这里只是打开了上一步骤找到了串口集合中的第一个串口，可根据需求更改
         String prtName = ports.get(0);
         SerialPortVo serialPortVo = SerialTool.openPort(portName, baudRate);
 ```
