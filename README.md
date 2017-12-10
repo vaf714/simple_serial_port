@@ -2,12 +2,12 @@
 > RXTX 项目提供了 Windows、Linux、Mac os X、Solaris 操作系统下的兼容 javax.comm 串口通讯包 API 的实现，为其他研发人员在此类系统下研发串口应用提供了相当的方便。本项目基于 RXTX 封装重构了部分代码，使开发人员只需简单几步即可实现 java 串口通信，需要注意的是，这不是一个可执行的程序，如果你要使用它，请将它作为你项目的依赖库或者编译成 jar 包引入到项目
 
 ## 准备工作
-1. 根据不同的操作系统将 RXTX 开源包配置好，这里提供 windows 平台配置方法，其他平台请自行搜索，点击[这里](https://pan.baidu.com/s/1nvsZvZV)下载，密码：1234
+1. 根据不同的操作系统将 RXTX 开源包配置好，这里提供 windows 平台配置方法，其他平台请自行搜索（点击[这里](https://pan.baidu.com/s/1nvsZvZV)下载 `mfz-rxtx-2.2-20081207-win-x64.zip`，密码：1234）
  - 将 `rxtxSerial.dll`、`rxtxParallel.dll` 放入 `<系统盘>\Windows\System32`
  - 将 `rxtxSerial.dll`、`rxtxParallel.dll` 放入 `<JAVA_HOME>\jre\bin`
  - 将 `RXTXcomm.jar` 放入 `<JAVA_HOME>\jre\lib\ext`
-2. 将此模块编译成 jar 包加入项目编译路径中（点击[这里](https://pan.baidu.com/s/1qYaCvi0)下载，密码：1234），或者直接将该模块作为依赖库引入项目中
-3. 你的项目必须加入本项目中 lib 文件夹中的所有 jar 包，点击[这里](https://pan.baidu.com/s/1gfGmmmn)下载，密码：4321
+2. 将此模块编译成 jar 包加入项目编译路径中（点击[这里](https://pan.baidu.com/s/1qYaCvi0)下载 `simple_serial_port.jar`，密码：1234），或者直接将该模块作为依赖库引入项目中
+3. 你的项目必须加入本项目中 lib 文件夹中的所有 jar 包（点击[这里](https://pan.baidu.com/s/1gfGmmmn)下载，密码：4321）
 ## 正式使用
 1. 查找可用串口
 
