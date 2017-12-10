@@ -45,7 +45,7 @@ public class MyListener extends PortListener {
         SerialPortVo serialPortVo = SerialTool.openPort(portName, baudRate);
         serialPortVo.bindListener(new MyListener(), 500);
         // 使用打开串口返回的 SerialPortVo 对象发送方法
-        String reply = "收到了";
+        String reply = "我是在监听器类外面给你发送的消息哦";
         serialPortVo.sendData(reply.getBytes());
 ```
 - 方式二：在监听器内，直接使用内置 `SerialPortVo` 对象调用发送方法
@@ -56,7 +56,7 @@ public class MyListener extends PortListener {
     public void onReceive(byte[] data) {
         String dataStr = new String(data).trim();
         // 直接使用内置 SerialPortVo 对象调用发送方法
-        String reply = "收到了";
+        String reply = "我收到你发送的数据啦";
         serialPortVo.sendData(reply.getBytes());
     }
 }
