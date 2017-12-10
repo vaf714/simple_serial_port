@@ -38,7 +38,7 @@ public class MyListener extends PortListener {
         serialPortVo.bindListener(new MyListener(), 500);
 ```
 5. 给串口发送数据
-- 方式一：在监听器外，使用打开串口返回的 `SerialPortVo` 对象发送方法
+- 方式一：在监听器外，使用打开串口返回的 `SerialPortVo` 对象发送字节数组类型的数据
 ```
         ArrayList<String> ports = SerialTool.findPort();
         String prtName = ports.get(0);
@@ -48,7 +48,7 @@ public class MyListener extends PortListener {
         String reply = "我是在监听器类外面给你发送的消息哦";
         serialPortVo.sendData(reply.getBytes());
 ```
-- 方式二：在监听器内，直接使用内置 `SerialPortVo` 对象调用发送方法
+- 方式二：在监听器内，直接使用内置 `SerialPortVo` 对象调用发送字节数组类型的数据
 ```
 public class MyListener extends PortListener {
 
