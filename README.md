@@ -11,17 +11,17 @@
 ## 正式使用
 1. 查找可用串口
 
-```
+```java
         ArrayList<String> ports = SerialTool.findPort();
 ```
 2. 打开上述找到的串口
-```
+```java
         // 这里只是打开了上一步骤找到了串口集合中的第一个串口，可根据需求更改
         String prtName = ports.get(0);
         SerialPortVo serialPortVo = SerialTool.openPort(portName, baudRate);
 ```
 3. 新建监听器继承 `PortListener` 父类并重写 `onReceive()` 方法，当串口接收到数据自动调用 `onReceive()` 方法
-```
+```java
 public class MyListener extends PortListener {
     
     @Override
@@ -32,14 +32,14 @@ public class MyListener extends PortListener {
 }
 ```
 4. 利用打开串口时返回的 `SerialPortVo` 对象绑定监听器
-```
+```java
         // 第二个参数 500 为串口收到数据后等待 500 ms后再去读取串口数据，
         // 防止读串口时数据没有完全到达串口，可根据数据大小适当调整等待时间
         serialPortVo.bindListener(new MyListener(), 500);
 ```
 5. 给串口发送数据
 - 方式一：在监听器外，使用打开串口时返回的 `SerialPortVo` 对象发送字节数组类型的数据
-```
+```java
         ArrayList<String> ports = SerialTool.findPort();
         String prtName = ports.get(0);
         SerialPortVo serialPortVo = SerialTool.openPort(portName, baudRate);
@@ -49,7 +49,7 @@ public class MyListener extends PortListener {
         serialPortVo.sendData(reply.getBytes());
 ```
 - 方式二：在监听器内，直接使用监听器内部 `SerialPortVo` 对象调用发送字节数组类型的数据
-```
+```java
 public class MyListener extends PortListener {
 
     @Override
