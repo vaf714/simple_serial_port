@@ -6,7 +6,7 @@
  - 将 `rxtxSerial.dll`、`rxtxParallel.dll` 放入 `<系统盘>\Windows\System32`
  - 将 `rxtxSerial.dll`、`rxtxParallel.dll` 放入 `<JAVA_HOME>\jre\bin`
  - 将 `RXTXcomm.jar` 放入 `<JAVA_HOME>\jre\lib\ext`
-2. 你的项目必须包含 log4j 依赖的 jar 包（点击[这里](https://pan.baidu.com/s/1gfGmmmn)下载，密码：4321）
+2. 你的项目必须包含 log4j 和 rxtx 依赖的 jar 包（点击[这里](https://pan.baidu.com/s/1gfGmmmn)下载，密码：4321）
 3. 将此模块编译成 jar 包加入到你的项目中（点击[这里](https://pan.baidu.com/s/1qYaCvi0)下载 `simple_serial_port.jar`，密码：1234），或者直接将该模块作为依赖库引入项目中
 ## 正式使用
 1. 查找可用串口
