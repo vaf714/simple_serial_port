@@ -31,14 +31,14 @@ public class MyListener extends PortListener {
     }
 }
 ```
-4. 利用打开串口返回的 `SerialPortVo` 对象绑定监听器
+4. 利用打开串口时返回的 `SerialPortVo` 对象绑定监听器
 ```
         // 第二个参数 500 为串口收到数据后等待 500 ms后再去读取串口数据，
         // 防止读串口时数据没有完全到达串口，可根据数据大小适当调整等待时间
         serialPortVo.bindListener(new MyListener(), 500);
 ```
 5. 给串口发送数据
-- 方式一：在监听器外，使用打开串口返回的 `SerialPortVo` 对象发送字节数组类型的数据
+- 方式一：在监听器外，使用打开串口时返回的 `SerialPortVo` 对象发送字节数组类型的数据
 ```
         ArrayList<String> ports = SerialTool.findPort();
         String prtName = ports.get(0);
@@ -48,7 +48,7 @@ public class MyListener extends PortListener {
         String reply = "我是在监听器类外面给你发送的消息哦";
         serialPortVo.sendData(reply.getBytes());
 ```
-- 方式二：在监听器内，直接使用内置 `SerialPortVo` 对象调用发送字节数组类型的数据
+- 方式二：在监听器内，直接使用监听器内部 `SerialPortVo` 对象调用发送字节数组类型的数据
 ```
 public class MyListener extends PortListener {
 
