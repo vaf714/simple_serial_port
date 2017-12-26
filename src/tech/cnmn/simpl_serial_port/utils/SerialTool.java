@@ -61,7 +61,7 @@ public class SerialTool {
 	 * @throws PortInUse
 	 *             端口已被占用
 	 */
-	public static final SerialPortVo openPort(String portName, int baudrate)
+	public static final SerialPortVo openPort(String name, String portName, int baudrate)
 			throws SerialPortParameterFailure, NotASerialPort, NoSuchPort,
 			PortInUse {
 
@@ -78,6 +78,7 @@ public class SerialTool {
 
 				SerialPort serialPort = (SerialPort) commPort;
 				SerialPortVo serialPortVo = new SerialPortVo(serialPort);
+				serialPortVo.setName(name);
 				try {
 					// 设置一下串口的波特率等参数
 					serialPort.setSerialPortParams(baudrate,

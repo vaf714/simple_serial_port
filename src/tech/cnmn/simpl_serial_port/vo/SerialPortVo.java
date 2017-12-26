@@ -102,10 +102,8 @@ public class SerialPortVo {
      * @param sleepTime
      * @throws TooManyListeners
      */
-    public void bindListener(String name, PortListener listener, int sleepTime) throws TooManyListeners {
+    public void bindListener(PortListener listener, int sleepTime) throws TooManyListeners {
         try {
-            //设置名称
-            this.name = name;
             //设置监听器
             listener.setSerialPort(this);
             listener.setSleepTime(sleepTime);
