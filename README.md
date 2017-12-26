@@ -29,7 +29,12 @@ public class MyListener extends PortListener {
     @Override
     public void onReceive(byte[] data) {
         String dataStr = new String(data).trim();
-        System.out.println("串口接收到数据: {}" + dataStr);
+        System.out.println("串口接收到数据: " + dataStr);
+    }
+    
+    @Override
+    public void onReadException(Exception e) {
+        System.out.println("发生异常: " + e.getMessage());
     }
 }
 ```
