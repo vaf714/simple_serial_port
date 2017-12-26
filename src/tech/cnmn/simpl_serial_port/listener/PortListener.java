@@ -4,8 +4,8 @@ import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import tech.cnmn.simpl_serial_port.vo.SerialPortVo;
 import tech.cnmn.simpl_serial_port.utils.ExceptionUtils;
+import tech.cnmn.simpl_serial_port.vo.SerialPortVo;
 
 /**
  * Created by zsc on 2017/5/9.
@@ -50,11 +50,13 @@ public abstract class PortListener implements SerialPortEventListener {
                         onReceive(data);
                     }
                 } catch (Exception e) {
-                    logger.error(ExceptionUtils.getTrace(e));
+                    onReadException(e);
                 }
                 break;
         }
     }
+
+    abstract public void onReadException(Exception e);
 
     abstract public void onReceive(byte[] data);
 }

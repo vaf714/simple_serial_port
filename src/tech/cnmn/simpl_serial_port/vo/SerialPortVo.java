@@ -14,6 +14,8 @@ import java.util.TooManyListenersException;
  */
 public class SerialPortVo {
 
+    private String name;
+
     private SerialPort serialPort;
 
     public SerialPortVo(SerialPort serialPort) {
@@ -26,6 +28,14 @@ public class SerialPortVo {
 
     public void setSerialPort(SerialPort serialPort) {
         this.serialPort = serialPort;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     /**
@@ -92,8 +102,10 @@ public class SerialPortVo {
      * @param sleepTime
      * @throws TooManyListeners
      */
-    public void bindListener(PortListener listener, int sleepTime) throws TooManyListeners {
+    public void bindListener(String name, PortListener listener, int sleepTime) throws TooManyListeners {
         try {
+            //设置名称
+            this.name = name;
             //设置监听器
             listener.setSerialPort(this);
             listener.setSleepTime(sleepTime);
@@ -112,8 +124,8 @@ public class SerialPortVo {
      * 关闭串口
      */
     public void closePort() {
-		if (serialPort != null) {
-			serialPort.close();
-		}
-	}
+        if (serialPort != null) {
+            serialPort.close();
+        }
+    }
 }
