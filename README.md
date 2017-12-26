@@ -19,8 +19,7 @@
 ```java
         // 第一个参数用于给 serialPortVo 指定一个名字，便于识别不同的 serialPortVo ，可通过 serialPortVo.getName() 获取
         // 这里只是打开了上一步骤找到了串口集合中的第一个串口，可根据需求更改
-        String prtName = ports.get(0);
-        SerialPortVo serialPortVo = SerialTool.openPort("我是dtu的串口", portName, baudRate);
+        SerialPortVo serialPortVo = SerialTool.openPort("我是dtu的串口", ports.get(0), baudRate);
 ```
 3. 新建监听器继承 `PortListener` 父类并重写 `onReceive()` 和 `onReadException()` 方法，当串口接收到数据自动调用 `onReceive()` 方法，当接收数据时发生异常将调用 `onReadException()` 方法
 ```java
@@ -48,8 +47,7 @@ public class MyListener extends PortListener {
 - 方式一：在监听器外，使用打开串口时返回的 `SerialPortVo` 对象发送字节数组类型的数据
 ```java
         ArrayList<String> ports = SerialTool.findPort();
-        String prtName = ports.get(0);
-        SerialPortVo serialPortVo = SerialTool.openPort(portName, baudRate);
+        SerialPortVo serialPortVo = SerialTool.openPort("我是dtu的串口", ports.get(0), baudRate);
         serialPortVo.bindListener(new MyListener(), 500);
         // 使用打开串口返回的 SerialPortVo 对象发送方法
         String reply = "我是在监听器类外面给你发送的消息哦";
@@ -65,6 +63,11 @@ public class MyListener extends PortListener {
         // 直接使用内置 SerialPortVo 对象调用发送方法
         String reply = "我收到你发送的数据啦";
         serialPortVo.sendData(reply.getBytes());
+    }
+    
+    @Override
+    public void onReadException(Exception e) {
+        //...
     }
 }
 ```
