@@ -1,5 +1,5 @@
 
-> RXTX 项目提供了 Windows、Linux、Mac os X、Solaris 操作系统下的兼容 javax.comm 串口通讯包 API 的实现，为其他研发人员在此类系统下研发串口应用提供了相当的方便。本项目基于 RXTX 封装重构了部分代码，使开发人员只需简单几步即可实现 java 串口通信，需要注意的是，这不是一个可执行的程序，如果你要使用它，请将它作为你项目的依赖库或者编译成 jar 包引入到项目
+> RXTX 项目提供了 Windows、Linux、Mac os X、Solaris 操作系统下的兼容 javax.comm 串口通讯包 API 的实现，为其他研发人员在此类系统下研发串口应用提供了方便。本仓库基于 RXTX 封装重构了部分代码，只需简单几步即可实现 java 串口通信，这不是一个可执行的程序，要将它作为你项目的依赖库或者编译成 jar 包引入到项目
 
 ## 准备工作
 点击[这里](https://pan.baidu.com/s/1i4X3Fxj)下载准备资源，密码：1234
@@ -7,9 +7,9 @@
  - 将 `rxtxSerial.dll` 放入 `<系统盘>\Windows\System32`
  - 将 `rxtxSerial.dll` 放入 `<JAVA_HOME>\jre\bin`
  - 将 `RXTXcomm.jar` 放入 `<JAVA_HOME>\jre\lib\ext`
-2. 将 `RXTXcomm.jar` 和 log4j 依赖的 jar 包加入到你的项目中
-3. 将此模块编译成的 `simple_serial_port.jar` 加入到你的项目中，或者直接将该模块作为依赖库引入项目中
-## 正式使用
+2. 将 `RXTXcomm.jar` 和 log4j 依赖的 jar 包加入到项目中
+3. 将此模块编译成的 `simple_serial_port.jar` 加入到项目中，或者直接将该模块作为依赖库引入项目中
+## 使用
 1. 查找可用串口
 
 ```java
