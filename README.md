@@ -1,14 +1,18 @@
 
+# simple_serial_port  ![](https://img.shields.io/badge/language-java-brightgreen.svg?style=plastic)
+
 > RXTX 项目提供了 Windows、Linux、Mac os X、Solaris 操作系统下的兼容 javax.comm 串口通讯包 API 的实现，为其他研发人员在此类系统下研发串口应用提供了方便。本仓库基于 RXTX 封装重构了部分代码，只需简单几步即可实现 java 串口通信，这不是一个可执行的程序，要将它作为你项目的依赖库或者编译成 jar 包引入到项目
 
+中文 | [English](https://github.com/vaf714/simple_serial_port/blob/master/README_en.md)
+
 ## 准备工作
-点击[这里](https://pan.baidu.com/s/1i4X3Fxj)下载准备资源，密码：1234
-1. 下载 `rxtx-2.2pre2-bins.zip`，根据不同的操作系统将 RXTX 开源包配置好，这里提供 windows 平台配置方法，其他平台请自行阅读官方文档
+在 [releases](https://github.com/vaf714/simple_serial_port/releases) 中下载依赖包
+1. `rxtx-2.2pre2-bins.zip`是 RXTX 开源包，windows 平台配置方法如下，其他平台请阅读官方文档
  - 将 `rxtxSerial.dll` 放入 `<系统盘>\Windows\System32`
  - 将 `rxtxSerial.dll` 放入 `<JAVA_HOME>\jre\bin`
  - 将 `RXTXcomm.jar` 放入 `<JAVA_HOME>\jre\lib\ext`
-2. 将 `RXTXcomm.jar` 和 log4j 依赖的 jar 包加入到项目中
-3. 将此模块编译成的 `simple_serial_port.jar` 加入到项目中，或者直接将该模块作为依赖库引入项目中
+2. 将 `RXTXcomm.jar` 和 log4j 依赖的 jar 包（jar文件夹内）加入到项目中
+3. 将此模块编译成的 `simple_serial_port.jar` 加入到你的项目中，或者直接将该项目源码作为依赖库引入你的项目中
 ## 使用
 1. 查找可用串口
 
@@ -18,7 +22,7 @@ ArrayList<String> ports = SerialTool.findPort();
 2. 打开上述找到的串口
 ```java
 // 第一个参数用于给 serialPortVo 指定一个名字，便于识别不同的 serialPortVo ，可通过 serialPortVo.getName() 获取
-// 这里只是打开了上一步骤找到了串口集合中的第一个串口，可根据需求更改
+// 打开上一步骤找到了串口集合中的第一个串口，可根据需求更改
 SerialPortVo serialPortVo = SerialTool.openPort("我是dtu的串口", ports.get(0), baudRate);
 ```
 3. 新建监听器继承 `PortListener` 父类并重写 `onReceive()` 和 `onReadException()` 方法，当串口接收到数据自动调用 `onReceive()` 方法，当接收数据时发生异常将调用 `onReadException()` 方法
